@@ -1,56 +1,84 @@
 import React from "react";
 import styled from "styled-components";
+import { useLoad } from "../../Context/isLoaded";
 
 const Container = styled.div`
+  transition: all 0.6s ease-in-out;
+  opacity: ${(props) => (props.isActive ? "1" : "0")};
+  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
   position: absolute;
   height: 600px;
   width: 500px;
-  background-color: #050505;
-  opacity: 0.7;
+  box-shadow: 2px 3px 20px whitesmoke, 0 0 50px #613c17 inset;
+  background: black;
+  filter: url(#wavy2);
   left: 10%;
-  top: 10%;
-  z-index: 99;
+  top: 20%;
+  z-index: 98;
 `;
 const List = styled.div`
-  width: 100%;
+  position: absolute;
+  transition: all 0.6s ease-in-out;
+  opacity: ${(props) => (props.isActive ? "1" : "0")};
+  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
+  left: 10%;
+  top: -5%;
+  z-index: 999;
+  width: 500px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  margin-top: 100px;
+  margin-top: 150px;
 `;
 const Category = styled.div`
-  width: 200px;
-  height: 33px;
+  width: 250px;
+  height: 43px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: 5px;
   border-bottom: 1px solid white;
-  border-left: 50px solid rgba(0, 0, 0, 0.2);
-  border-right: 50px solid rgba(0, 0, 0, 0.2);
   font-size: 17px;
   color: white;
-  transition: all 0.2s ease-in-out;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+  border-left: 15px solid rgb(0, 0, 0, 1);
+  border-right: 15px solid rgb(0, 0, 0, 1);
+  box-shadow: 0;
+
   cursor: pointer;
   &:hover {
-    background: #cf5300;
+    box-shadow: 0px 10px 20px 10px black inset;
+    background-color: #cf5300b3;
   }
 `;
 
-const Navigation = () => {
+const Navigation = ({ isActive }) => {
+  const { setClick } = useLoad();
+
   return (
     <>
-      <Container>
-        <List>
-          <Category>Level up</Category>
-          <Category>Travel</Category>
-          <Category>About Me</Category>
-          <Category>Contact Me</Category>
-        </List>
-      </Container>
+      <Container isActive={isActive}></Container>
+      <List isActive={isActive}>
+        <Category onClick={() => setClick(true)}>Level up</Category>
+        <Category>Travel</Category>
+        <Category>About Me</Category>
+        <Category>Contact Me</Category>
+      </List>
+
+      <svg>
+        <filter id="wavy2">
+          <feTurbulence
+            x="0"
+            y="0"
+            baseFrequency="0.02"
+            numOctaves="5"
+            seed="1"
+          />
+          <feDisplacementMap in="SourceGraphic" scale="20" />
+        </filter>
+      </svg>
     </>
   );
 };

@@ -3,7 +3,7 @@
 ///import { useControls } from "leva";
 import { useRef } from "react";
 
-function Lights() {
+const Lights = ({ isActive }) => {
   // const ambientRef = useRef();
   const directionalRef = useRef();
   const pointRef = useRef();
@@ -40,10 +40,13 @@ function Lights() {
         position={[-17, 0, 89]}
         color={"#a0a0a0"}
       />
+      {isActive ? (
+        <pointLight ref={pointRef} position={[0, 0, 0]} intensity={".5"} />
+      ) : null}
 
       <pointLight ref={pointRef} position={[0, 0, 0]} color={"#481300"} />
     </>
   );
-}
+};
 
 export default Lights;

@@ -4,15 +4,7 @@ import React, { useRef } from "react";
 import { Bonfire } from "./Bonfire";
 import { Floor } from "./Floor";
 import Lights from "./Light";
-
-const PlaneWall = () => {
-  return (
-    <mesh position={[0, 0, -7]}>
-      <planeGeometry attach="geometry" args={[30, 30]} />
-      <meshStandardMaterial attach="material" color="black" />
-    </mesh>
-  );
-};
+import { Fire } from "../Shaders/Fire";
 
 const Plane = () => {
   return (
@@ -41,18 +33,17 @@ const Cube = () => {
   );
 };
 
-const Three = () => {
+const Three = ({ isActive }) => {
   return (
     <>
       <Canvas camera={{ position: [0, -0.1, 2.5] }}>
-        <OrbitControls />
-        <Lights />
+        <Lights isActive={isActive} />
+        {isActive ? <Fire color={"white"} /> : null}
 
         <Bonfire />
-        <PlaneWall />
+
         <Plane />
         <Floor />
-        <axesHelper args={[5]} />
       </Canvas>
     </>
   );

@@ -6,10 +6,16 @@ source: https://sketchfab.com/3d-models/dark-souls-bonfire-b0d68c8f4cd0487da3d1f
 title: Dark Souls - Bonfire
 */
 
-import React, { useRef } from "react";
+import React, { useEffect, useContext } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useLoad } from "../Context/isLoaded";
 
 export function Bonfire(props) {
+  const { setLoaded } = useLoad();
+  useEffect(() => {
+    setLoaded(true);
+    console.log("bonfire in");
+  }, []);
   const { nodes, materials } = useGLTF("/Assets/BonfireModel/scene.gltf");
   return (
     <group {...props} dispose={null}>

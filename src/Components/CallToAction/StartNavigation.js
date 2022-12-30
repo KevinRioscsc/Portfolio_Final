@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
+  transition: all 0.2s ease-in-out;
+  opacity: ${(props) => (props.isActive ? "0" : "1")};
+  visibility: ${(props) => (props.isActive ? "hidden" : "visible")};
   position: absolute;
+  background-blend-mode: hue;
   height: 40px;
   width: 600px;
   background-color: black;
@@ -10,7 +14,7 @@ const Container = styled.div`
   border-bottom: 1px solid white;
   border-right: 40px solid rgba(0, 0, 0, 0.2);
   border-left: 40px solid rgba(0, 0, 0, 0.2);
-  opacity: 0.7;
+
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -23,10 +27,10 @@ const Content = styled.p`
   color: white;
 `;
 
-const StartNavigation = () => {
+const StartNavigation = ({ isActive }) => {
   return (
     <>
-      <Container>
+      <Container isActive={isActive}>
         <Content>Press E: Rest At Bonfire</Content>
       </Container>
     </>
