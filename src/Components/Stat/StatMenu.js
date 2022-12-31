@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useLoad } from "../../Context/isLoaded";
 import { VscClose } from "react-icons/vsc";
+import VintageContainer from "../LeatheryDiv/VintageContainer";
 
 const Contain = styled.div`
   transition: all 0.6s ease-in-out;
@@ -103,9 +104,20 @@ const Close = styled.div`
 
 const StatMenu = () => {
   const { clicked } = useLoad();
+
+  const style = {
+    left: "50%",
+    right: "50%",
+    height: "600px",
+    width: "700px",
+    transform: "translate(-50%, -50%)",
+    isActive: clicked,
+  };
+
   return (
     <>
-      <Contain isActive={clicked}></Contain>
+      {console.log(clicked)}
+      <VintageContainer {...style} />
       <Level isActive={clicked}>
         <Wrapper>
           <TopLayer>

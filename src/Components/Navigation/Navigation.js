@@ -1,28 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { useLoad } from "../../Context/isLoaded";
+import VintageContainer from "../LeatheryDiv/VintageContainer";
 
-const Container = styled.div`
-  transition: all 0.6s ease-in-out;
-  opacity: ${(props) => (props.isActive ? "1" : "0")};
-  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
-  position: absolute;
-  height: 600px;
-  width: 500px;
-  box-shadow: 2px 3px 20px whitesmoke, 0 0 50px #613c17 inset;
-  background: black;
-  filter: url(#wavy2);
-  left: 10%;
-  top: 20%;
-  z-index: 98;
-`;
 const List = styled.div`
   position: absolute;
   transition: all 0.6s ease-in-out;
   opacity: ${(props) => (props.isActive ? "1" : "0")};
   visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
   left: 10%;
-  top: -5%;
+  top: 0%;
   z-index: 999;
   width: 500px;
   height: 600px;
@@ -53,32 +40,42 @@ const Category = styled.div`
     background-color: #cf5300b3;
   }
 `;
+const TitleDiv = styled.div`
+  position: absolute;
+  z-index: 9999;
+  color: white;
+  font-size: 25px;
+  left: 13%;
+  top: 24%;
+  opacity: ${(props) => (props.isActive ? "1" : "0")};
+  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
+`;
 
-const Navigation = ({ isActive }) => {
-  const { setClick } = useLoad();
+const Navigation = ({ ...props }) => {
+  const { navTitle, isActive, Title } = props;
+
+  const style = {
+    left: "10%",
+    right: "20%",
+    height: "600px",
+    width: "500px",
+    transform: "0",
+    isActive: isActive,
+  };
 
   return (
     <>
-      <Container isActive={isActive}></Container>
+      <VintageContainer {...style} />
+      <TitleDiv isActive={isActive}>{Title}</TitleDiv>
       <List isActive={isActive}>
-        <Category onClick={() => setClick(true)}>Level up</Category>
-        <Category>Travel</Category>
-        <Category>About Me</Category>
-        <Category>Contact Me</Category>
+        {navTitle.map((item, index) => {
+          return (
+            <Category key={index + item.title} onClick={() => item.click(true)}>
+              {item.title}
+            </Category>
+          );
+        })}
       </List>
-
-      <svg>
-        <filter id="wavy2">
-          <feTurbulence
-            x="0"
-            y="0"
-            baseFrequency="0.02"
-            numOctaves="5"
-            seed="1"
-          />
-          <feDisplacementMap in="SourceGraphic" scale="20" />
-        </filter>
-      </svg>
     </>
   );
 };

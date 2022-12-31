@@ -5,6 +5,9 @@ import Three from "../Three/Three";
 import Loading from "../Components/LoadingScreen/Loading";
 import { useLoad } from "../Context/isLoaded";
 import StatMenu from "../Components/Stat/StatMenu";
+import MainNavigation from "../Components/MainNavigation/MainNavigation";
+import ProjectNav from "../Components/ProjectNav/ProjectNav";
+import ShowCase from "../Components/ProjectShowCase/ShowCase";
 
 const Home = () => {
   const [pressed, setPressed] = useState(false);
@@ -31,12 +34,14 @@ const Home = () => {
   return (
     <>
       <div style={{ height: "100vh", background: "black" }}>
-        <Navigation isActive={pressed} />
+        <MainNavigation isActive={pressed} />
         <StartNavigation isActive={pressed} />
         <Three isActive={pressed} />
       </div>
       <Loading isLoaded={Load} />
       <StatMenu />
+      <ProjectNav />
+      <ShowCase />
     </>
   );
 };
