@@ -66,6 +66,7 @@ const GitHubTitle = styled.div`
   border-bottom: 1px solid white;
 `;
 const weUpdate = styled.div``;
+const me = 0;
 
 const ShowCase = () => {
   const style = {
