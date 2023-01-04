@@ -9,6 +9,8 @@ const Container = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  opacity: ${(props) => (props.isActive ? "1" : "0")};
+  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
   z-index: 99;
 `;
 const Wrapper = styled.div`
@@ -65,8 +67,6 @@ const GitHubTitle = styled.div`
   padding: 3px;
   border-bottom: 1px solid white;
 `;
-const weUpdate = styled.div``;
-const me = 0;
 
 const ShowCase = () => {
   const style = {
@@ -75,10 +75,10 @@ const ShowCase = () => {
     height: "600px",
     width: "1100px",
     transform: "translate(-50%, -50%)",
-    isActive: true,
+    isActive: false,
   };
   return (
-    <div>
+    <>
       <VintageContainer {...style} />
       <Container>
         <Wrapper>
@@ -109,7 +109,7 @@ const ShowCase = () => {
           </DescrDiv>
         </Wrapper>
       </Container>
-    </div>
+    </>
   );
 };
 

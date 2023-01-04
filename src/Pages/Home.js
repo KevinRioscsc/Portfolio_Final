@@ -11,20 +11,32 @@ import ShowCase from "../Components/ProjectShowCase/ShowCase";
 
 const Home = () => {
   const [pressed, setPressed] = useState(false);
-  const { Load } = useLoad();
+  const { Load, setStack, menuStack } = useLoad();
+
+  const startMenu = () => {
+    if (menuStack[0].state === true) {
+      setStack((prev) => {
+        prev.map((item) => {
+          if (item.id === 2) {
+            return { ...item, state: true };
+          }
+        });
+      });
+    }
+  };
 
   useEffect(() => {
     const userPressed = (e) => {
       switch (e.key) {
         case "e":
-          setPressed(true);
+          startMenu();
           break;
         case "q":
           setPressed(false);
           break;
       }
     };
-    console.log("loaded");
+
     window.addEventListener("keydown", userPressed);
 
     return () => {
@@ -34,8 +46,8 @@ const Home = () => {
   return (
     <>
       <div style={{ height: "100vh", background: "black" }}>
-        <MainNavigation isActive={pressed} />
-        <StartNavigation isActive={pressed} />
+        <MainNavigation isActive={false} />
+        <StartNavigation isActive={true} />
         <Three isActive={pressed} />
       </div>
       <Loading isLoaded={Load} />

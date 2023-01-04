@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   transition: all 0.2s ease-in-out;
-  opacity: ${(props) => (props.isActive ? "0" : "1")};
-  visibility: ${(props) => (props.isActive ? "hidden" : "visible")};
+  opacity: ${(props) => (props.isActive ? "1" : "0")};
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
   position: absolute;
   background-blend-mode: hue;
   height: 40px;
