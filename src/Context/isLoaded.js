@@ -11,13 +11,11 @@ const IsLoaded = ({ children }) => {
   const [clicked, setClick] = useState(false);
   const [menuStack, setStack] = useState([
     {
-      id: 1,
-      title: "rest",
+      title: "start",
       state: true,
     },
     {
-      id: 2,
-      title: "menu",
+      title: "startMenu",
       state: false,
     },
   ]);

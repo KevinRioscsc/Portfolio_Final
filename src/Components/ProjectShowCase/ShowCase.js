@@ -1,86 +1,61 @@
 import React from "react";
 import styled from "styled-components";
 import VintageContainer from "../LeatheryDiv/VintageContainer";
-
-const Container = styled.div`
-  height: 600px;
-  width: 1100px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: ${(props) => (props.isActive ? "1" : "0")};
-  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
-  z-index: 99;
-`;
-const Wrapper = styled.div`
-  padding: 2.5em;
-  color: white;
-  height: inherit;
-  display: flex;
-`;
-const VidContain = styled.div`
-  background: black;
-  height: 85%;
-  width: 50%;
-  z-index: 999999999999999;
-`;
-const Video = styled.div``;
-const DescrDiv = styled.div`
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 50%;
-`;
-const Title = styled.div`
-  text-align: center;
-  font-size: 25px;
-`;
-const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-const Catagories = styled.div``;
-const LinksDiv = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-const DescrTitle = styled.div``;
-const Tag = styled.div``;
-const Para = styled.div`
-  width: 90%;
-  align-self: center;
-`;
-const LinkTitle = styled.div`
-  cursor: pointer;
-  width: 70px;
-  text-align: center;
-  padding: 3px;
-  border-bottom: 1px solid white;
-`;
-const GitHubTitle = styled.div`
-  cursor: pointer;
-  width: 70px;
-  text-align: center;
-  padding: 3px;
-  border-bottom: 1px solid white;
-`;
+import { IoMdArrowBack } from "react-icons/io";
+import { useLoad } from "../../Context/isLoaded";
+import {
+  Container,
+  Wrapper,
+  VidContain,
+  Video,
+  DescrDiv,
+  Title,
+  Description,
+  Catagories,
+  LinksDiv,
+  GitHubTitle,
+  DescrTitle,
+  Tag,
+  Para,
+  LinkTitle,
+  Back,
+} from "./Styled";
 
 const ShowCase = () => {
+  const { menuStack, setStack } = useLoad();
+  const statState = menuStack.find((item) => item.title === "BlockChain");
+  const isActive = statState ? statState.state : false;
+
+  const goBack = () => {
+    setStack((prev) => {
+      return prev
+        .filter((item) => item.title !== "BlockChain")
+        .map((item, index) => {
+          console.log(item);
+          if (index === prev.length - 2) {
+            console.log("this item is", item);
+            return { ...item, state: true };
+          }
+          return { ...item };
+        });
+    });
+  };
+
   const style = {
     left: "50%",
     right: "50%",
     height: "600px",
     width: "1100px",
     transform: "translate(-50%, -50%)",
-    isActive: false,
+    isActive: isActive,
   };
   return (
     <>
       <VintageContainer {...style} />
-      <Container>
+      <Container isActive={isActive}>
+        <Back onClick={goBack}>
+          <IoMdArrowBack size={40} color={"white"} />
+        </Back>
         <Wrapper>
           <VidContain>
             <Video></Video>

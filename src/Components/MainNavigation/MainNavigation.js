@@ -2,8 +2,8 @@ import React from "react";
 import { useLoad } from "../../Context/isLoaded";
 import Navigation from "../Navigation/Navigation";
 
-const MainNavigation = ({ isActive }) => {
-  const { setClick } = useLoad();
+const MainNavigation = () => {
+  const { setClick, menuStack } = useLoad();
   const style = {
     Title: "",
     navTitle: [
@@ -24,7 +24,7 @@ const MainNavigation = ({ isActive }) => {
         click: null,
       },
     ],
-    isActive: isActive,
+    isActive: menuStack[1].state,
   };
   return (
     <div>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useLoad } from "../../Context/isLoaded";
 import VintageContainer from "../LeatheryDiv/VintageContainer";
+import { IoMdArrowBack } from "react-icons/io";
 
 const List = styled.div`
   position: absolute;
@@ -45,14 +46,53 @@ const TitleDiv = styled.div`
   z-index: 9999;
   color: white;
   font-size: 25px;
-  left: 13%;
+  left: 20%;
   top: 24%;
+  transition: all 0.6s ease-in-out;
   opacity: ${(props) => (props.isActive ? "1" : "0")};
   visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
+`;
+const Back = styled.div`
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 9999999;
+  color: white;
+  height: 50px;
+  width: 50px;
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const Navigation = ({ ...props }) => {
   const { navTitle, isActive, Title } = props;
+  const { menuStack, setStack } = useLoad();
+
+  const clickIndex = (title) => {
+    setStack((prev) => {
+      const newArr = prev.map((item) => {
+        return { ...item, state: false };
+      });
+      return [...newArr, { title: title, state: true }];
+    });
+  };
+  const goBack = () => {
+    setStack((prev) => {
+      return prev
+        .filter((item) => item.title !== "Projects")
+        .map((item, index) => {
+          if (index === prev.length - 2) {
+            console.log("this item is", item);
+            return { ...item, state: true };
+          }
+          return { ...item };
+        });
+    });
+  };
 
   const style = {
     left: "10%",
@@ -68,9 +108,15 @@ const Navigation = ({ ...props }) => {
       <VintageContainer {...style} />
       <TitleDiv isActive={isActive}>{Title}</TitleDiv>
       <List isActive={isActive}>
+        <Back onClick={goBack}>
+          <IoMdArrowBack size={40} color={"white"} />
+        </Back>
         {navTitle.map((item, index) => {
           return (
-            <Category key={index + item.title} onClick={() => item.click(true)}>
+            <Category
+              key={index + item.title}
+              onClick={() => clickIndex(item.title)}
+            >
               {item.title}
             </Category>
           );

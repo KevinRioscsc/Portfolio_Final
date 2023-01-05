@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useLoad } from "../../Context/isLoaded";
 
 const Container = styled.div`
   transition: all 0.2s ease-in-out;
@@ -27,10 +28,11 @@ const Content = styled.p`
   color: white;
 `;
 
-const StartNavigation = ({ isActive }) => {
+const StartNavigation = () => {
+  const { menuStack } = useLoad();
   return (
     <>
-      <Container isActive={isActive}>
+      <Container isActive={menuStack[0].state}>
         <Content>Press E: Rest At Bonfire</Content>
       </Container>
     </>

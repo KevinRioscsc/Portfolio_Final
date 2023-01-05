@@ -14,15 +14,18 @@ const Home = () => {
   const { Load, setStack, menuStack } = useLoad();
 
   const startMenu = () => {
-    if (menuStack[0].state === true) {
-      setStack((prev) => {
-        prev.map((item) => {
-          if (item.id === 2) {
-            return { ...item, state: true };
-          }
-        });
+    console.log("state before", menuStack[0]);
+    setStack((prev) => {
+      return prev.map((item) => {
+        if (item.title === "start") {
+          return { ...item, state: false };
+        }
+        if (item.title === "startMenu") {
+          return { ...item, state: true };
+        }
       });
-    }
+    });
+    console.log("state before", menuStack[0]);
   };
 
   useEffect(() => {
@@ -46,8 +49,8 @@ const Home = () => {
   return (
     <>
       <div style={{ height: "100vh", background: "black" }}>
-        <MainNavigation isActive={false} />
-        <StartNavigation isActive={true} />
+        <MainNavigation />
+        <StartNavigation />
         <Three isActive={pressed} />
       </div>
       <Loading isLoaded={Load} />

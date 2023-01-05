@@ -29,7 +29,7 @@ const VintageContainer = ({ ...props }) => {
         isActive={isActive}
         transform={transform}
       ></Container>
-      <svg>
+      <svg style={{ display: "none" }}>
         <filter id="wavy2">
           <feTurbulence
             x="0"
