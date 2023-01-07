@@ -1,30 +1,26 @@
 import React from "react";
-import { useLoad } from "../../Context/isLoaded";
+import useAddToStack from "../../Hooks/useAddToStack";
 import Navigation from "../Navigation/Navigation";
 
 const MainNavigation = () => {
-  const { setClick, menuStack } = useLoad();
+  const { isActive } = useAddToStack("startMenu");
   const style = {
-    Title: "",
+    Title: "startMenu",
     navTitle: [
       {
         title: "Stats",
-        click: setClick,
       },
       {
         title: "Projects",
-        click: null,
       },
       {
         title: "About Me",
-        click: null,
       },
       {
         title: "Contact Me",
-        click: null,
       },
     ],
-    isActive: menuStack[1].state,
+    isActive: isActive,
   };
   return (
     <div>

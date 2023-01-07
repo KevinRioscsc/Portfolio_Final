@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useLoad } from "../../Context/isLoaded";
 import VintageContainer from "../LeatheryDiv/VintageContainer";
 import { IoMdArrowBack } from "react-icons/io";
+import useRemoveFromStack from "../../Hooks/useRemoveFromStack";
+import useAddToStack from "../../Hooks/useAddToStack";
 
 const List = styled.div`
   position: absolute;
@@ -70,29 +72,9 @@ const Back = styled.div`
 
 const Navigation = ({ ...props }) => {
   const { navTitle, isActive, Title } = props;
-  const { menuStack, setStack } = useLoad();
 
-  const clickIndex = (title) => {
-    setStack((prev) => {
-      const newArr = prev.map((item) => {
-        return { ...item, state: false };
-      });
-      return [...newArr, { title: title, state: true }];
-    });
-  };
-  const goBack = () => {
-    setStack((prev) => {
-      return prev
-        .filter((item) => item.title !== "Projects")
-        .map((item, index) => {
-          if (index === prev.length - 2) {
-            console.log("this item is", item);
-            return { ...item, state: true };
-          }
-          return { ...item };
-        });
-    });
-  };
+  const { goBack } = useRemoveFromStack(Title);
+  const { clickIndex } = useAddToStack();
 
   const style = {
     left: "10%",

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Navigation from "../Components/Navigation/Navigation";
+import React, { useEffect } from "react";
 import StartNavigation from "../Components/CallToAction/StartNavigation";
 import Three from "../Three/Three";
 import Loading from "../Components/LoadingScreen/Loading";
@@ -8,34 +7,28 @@ import StatMenu from "../Components/Stat/StatMenu";
 import MainNavigation from "../Components/MainNavigation/MainNavigation";
 import ProjectNav from "../Components/ProjectNav/ProjectNav";
 import ShowCase from "../Components/ProjectShowCase/ShowCase";
+import useAddToStack from "../Hooks/useAddToStack";
+import BonOverlay from "../Components/BonfireLitOverlay/BonOverlay";
+
+import mySound from "../Sound/bonfireSound.mp3";
 
 const Home = () => {
-  const [pressed, setPressed] = useState(false);
-  const { Load, setStack, menuStack } = useLoad();
+  const { Load, menuStack } = useLoad();
+  const { clickIndex, isActive } = useAddToStack("start");
 
-  const startMenu = () => {
-    console.log("state before", menuStack[0]);
-    setStack((prev) => {
-      return prev.map((item) => {
-        if (item.title === "start") {
-          return { ...item, state: false };
-        }
-        if (item.title === "startMenu") {
-          return { ...item, state: true };
-        }
-      });
-    });
-    console.log("state before", menuStack[0]);
-  };
+  const audio = new Audio(mySound);
+  audio.volume = 0.1;
 
   useEffect(() => {
     const userPressed = (e) => {
       switch (e.key) {
         case "e":
-          startMenu();
-          break;
-        case "q":
-          setPressed(false);
+          if (isActive) {
+            console.log("pressed", isActive);
+            clickIndex("startMenu");
+            audio.play();
+          }
+
           break;
       }
     };
@@ -51,12 +44,13 @@ const Home = () => {
       <div style={{ height: "100vh", background: "black" }}>
         <MainNavigation />
         <StartNavigation />
-        <Three isActive={pressed} />
+        <Three isActive={menuStack[0].state ? false : true} />
       </div>
       <Loading isLoaded={Load} />
       <StatMenu />
       <ProjectNav />
       <ShowCase />
+      <BonOverlay />
     </>
   );
 };

@@ -1,7 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import { useLoad } from "../../Context/isLoaded";
-import { VscClose } from "react-icons/vsc";
 import VintageContainer from "../LeatheryDiv/VintageContainer";
 import {
   Level,
@@ -17,16 +14,16 @@ import {
   Wrap,
   Exp,
   Wrapper,
-  Close,
+  Back,
 } from "./styled.js";
+import useAddToStack from "../../Hooks/useAddToStack";
+import { IoMdArrowBack } from "react-icons/io";
+import useRemoveFromStack from "../../Hooks/useRemoveFromStack";
 
 const StatMenu = () => {
-  const { menuStack } = useLoad();
-  console.log(menuStack);
-  const statState = menuStack.find((item) => item.title === "Stats");
-  const isActive = statState ? statState.state : false;
+  const { isActive } = useAddToStack("Stats");
+  const { goBack } = useRemoveFromStack("Stats");
 
-  console.log(statState ? statState : "not in our stack");
   const style = {
     left: "50%",
     right: "50%",
@@ -40,6 +37,9 @@ const StatMenu = () => {
     <>
       <VintageContainer {...style} />
       <Level isActive={isActive}>
+        <Back onClick={goBack}>
+          <IoMdArrowBack size={40} color={"white"} />
+        </Back>
         <Wrapper>
           <TopLayer>
             <Img></Img>
@@ -99,9 +99,6 @@ const StatMenu = () => {
               <Exp>23 yrs</Exp>
             </Attribute>
           </Stats>
-          <Close>
-            <VscClose color="white" />
-          </Close>
         </Wrapper>
       </Level>
     </>

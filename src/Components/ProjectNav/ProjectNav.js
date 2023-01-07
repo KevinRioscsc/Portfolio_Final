@@ -1,12 +1,11 @@
 import React from "react";
 import { useLoad } from "../../Context/isLoaded";
+import useAddToStack from "../../Hooks/useAddToStack";
 import Navigation from "../Navigation/Navigation";
 
 const ProjectNav = () => {
-  const { menuStack } = useLoad();
-  console.log(menuStack);
-  const statState = menuStack.find((item) => item.title === "Projects");
-  const isActive = statState ? statState.state : false;
+  const { isActive } = useAddToStack("Projects");
+
   const style = {
     Title: "Projects",
     navTitle: [

@@ -110,9 +110,16 @@ function Fire({ color, ...props }) {
     ref.current.material.uniforms.seed.value = Math.random() * 19.19;
   }, []);
   return (
-    <mesh ref={ref} {...props}>
-      <boxGeometry />
-      <fireMaterial transparent depthWrite={false} depthTest={false} />
+    <mesh
+      ref={ref}
+      {...props}
+      position={[0, 0, 0]}
+      transparent={true}
+      opacity={"0"}
+      dispose={null}
+    >
+      <boxGeometry transparent={true} opacity={"0"} />
+      <fireMaterial transparent={true} depthWrite={true} depthTest={true} />
     </mesh>
   );
 }

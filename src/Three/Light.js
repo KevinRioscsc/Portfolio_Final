@@ -2,11 +2,13 @@
 ///import { Stats, OrbitControls, useHelper } from "@react-three/drei";
 ///import { useControls } from "leva";
 import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 const Lights = ({ isActive }) => {
   // const ambientRef = useRef();
   const directionalRef = useRef();
   const pointRef = useRef();
+
   //const spotRef = useRef();
   /*
 
@@ -41,7 +43,7 @@ const Lights = ({ isActive }) => {
         color={"#a0a0a0"}
       />
       {isActive ? (
-        <pointLight ref={pointRef} position={[0, 0, 0]} intensity={".5"} />
+        <pointLight ref={pointRef} position={[0, 0, 0]} intensity={"0.5"} />
       ) : null}
 
       <pointLight ref={pointRef} position={[0, 0, 0]} color={"#481300"} />

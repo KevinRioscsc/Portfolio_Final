@@ -14,10 +14,6 @@ const IsLoaded = ({ children }) => {
       title: "start",
       state: true,
     },
-    {
-      title: "startMenu",
-      state: false,
-    },
   ]);
 
   const findElement = (name) => {

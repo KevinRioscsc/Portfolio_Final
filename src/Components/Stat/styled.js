@@ -73,11 +73,18 @@ export const Wrapper = styled.div`
   gap: 40px;
   position: relative;
 `;
-export const Close = styled.div`
+export const Back = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   z-index: 9999999;
   color: white;
+  height: 50px;
+  width: 50px;
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
 `;
