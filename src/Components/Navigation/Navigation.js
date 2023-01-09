@@ -24,14 +24,14 @@ const List = styled.div`
   margin-top: 150px;
 `;
 const Category = styled.div`
-  width: 250px;
+  width: 300px;
   height: 43px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 5px;
+
   border-bottom: 1px solid white;
-  font-size: 17px;
+  font-size: 25px;
   color: white;
   border-left: 15px solid rgb(0, 0, 0, 1);
   border-right: 15px solid rgb(0, 0, 0, 1);
@@ -48,7 +48,7 @@ const TitleDiv = styled.div`
   z-index: 9999;
   color: white;
   font-size: 25px;
-  left: 20%;
+  left: 19%;
   top: 24%;
   transition: all 0.6s ease-in-out;
   opacity: ${(props) => (props.isActive ? "1" : "0")};
@@ -88,7 +88,9 @@ const Navigation = ({ ...props }) => {
   return (
     <>
       <VintageContainer {...style} />
-      <TitleDiv isActive={isActive}>{Title}</TitleDiv>
+      <TitleDiv isActive={isActive}>
+        {Title === "startMenu" ? "" : Title}
+      </TitleDiv>
       <List isActive={isActive}>
         <Back onClick={goBack}>
           <IoMdArrowBack size={40} color={"white"} />

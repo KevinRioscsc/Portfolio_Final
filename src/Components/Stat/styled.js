@@ -10,17 +10,21 @@ export const Level = styled.div`
   z-index: 9999;
   color: white;
   height: 600px;
-  width: 700px;
-  margin: 50px;
+  width: 1000px;
+  margin: 10px;
 `;
 export const TopLayer = styled.div`
-  display: flex;
-  gap: 10px;
+  margin: 0 auto;
+  width: 40%;
 `;
 export const Img = styled.div`
-  height: 40px;
-  width: 40px;
-  border: 1px solid #613c17;
+  height: 100px;
+  width: 100px;
+  border: 1px solid yellow;
+  background: url(${(props) => props.img});
+  background-position: center;
+  background-size: cover;
+  z-index: 99999999999999999999;
 `;
 export const Title = styled.div`
   font-size: 20px;
@@ -34,6 +38,8 @@ export const Stats = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  margin: 0 auto;
+  font-size: 20px;
 `;
 export const Name = styled.div`
   align-self: center;
@@ -69,14 +75,15 @@ export const Wrap = styled.div`
 export const Exp = styled.div``;
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  height: 100%;
+  margin-top: 80px;
   gap: 40px;
   position: relative;
 `;
 export const Back = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
   z-index: 9999999;
   color: white;
   height: 50px;
@@ -87,4 +94,17 @@ export const Back = styled.div`
   &:hover {
     opacity: 1;
   }
+`;
+export const Descrip = styled.div`
+  margin-top: 30px;
+  font-size: 20px;
+`;
+export const Flex = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+export const Paragraph = styled.div`
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 24px;
 `;

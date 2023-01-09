@@ -13,9 +13,7 @@ const MainNavigation = () => {
       {
         title: "Projects",
       },
-      {
-        title: "About Me",
-      },
+
       {
         title: "Contact Me",
       },

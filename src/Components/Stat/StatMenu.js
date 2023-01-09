@@ -15,10 +15,14 @@ import {
   Exp,
   Wrapper,
   Back,
+  Descrip,
+  Flex,
+  Paragraph,
 } from "./styled.js";
 import useAddToStack from "../../Hooks/useAddToStack";
 import { IoMdArrowBack } from "react-icons/io";
 import useRemoveFromStack from "../../Hooks/useRemoveFromStack";
+import krios from "../../Images/kriosPic.png";
 
 const StatMenu = () => {
   const { isActive } = useAddToStack("Stats");
@@ -28,7 +32,7 @@ const StatMenu = () => {
     left: "50%",
     right: "50%",
     height: "600px",
-    width: "700px",
+    width: "1000px",
     transform: "translate(-50%, -50%)",
     isActive: isActive,
   };
@@ -42,9 +46,21 @@ const StatMenu = () => {
         </Back>
         <Wrapper>
           <TopLayer>
-            <Img></Img>
-            <Title>Stats</Title>
+            <Flex>
+              <Img img={krios}></Img>
+              <Title>Kevin's Stats</Title>
+            </Flex>
+            <Descrip>Description:</Descrip>
+            <Paragraph>
+              As a recent graduate of CSUDH, I am thrilled to have discovered my
+              passion for the field of computer science. It was during my
+              freshman year, while taking a programming class, that I fell in
+              love with the art of solving puzzles and exploring the vast realm
+              of the internet. This passion has only grown stronger in the years
+              since, and I am now eager to pursue a career in web development.
+            </Paragraph>
           </TopLayer>
+
           <Stats>
             <Name>Kevin A Rios</Name>
             <MYLevel>
@@ -60,14 +76,7 @@ const StatMenu = () => {
                   <Photo></Photo>
                   <AtName>Experience</AtName>
                 </Wrap>
-                <Exp>23 yrs</Exp>
-              </Attribute>
-              <Attribute>
-                <Wrap>
-                  <Photo></Photo>
-                  <AtName>Javascript</AtName>
-                </Wrap>
-                <Exp>23 yrs</Exp>
+                <Exp>5 yrs</Exp>
               </Attribute>
             </MYLevel>
             <Attribute>
@@ -75,28 +84,28 @@ const StatMenu = () => {
                 <Photo></Photo>
                 <AtName>Javascript</AtName>
               </Wrap>
-              <Exp>23 yrs</Exp>
+              <Exp>5 yrs</Exp>
             </Attribute>
             <Attribute>
               <Wrap>
                 <Photo></Photo>
-                <AtName>Javascript</AtName>
+                <AtName>CSS</AtName>
               </Wrap>
-              <Exp>23 yrs</Exp>
+              <Exp>4 yrs</Exp>
             </Attribute>
             <Attribute>
               <Wrap>
                 <Photo></Photo>
-                <AtName>Javascript</AtName>
+                <AtName>HTML</AtName>
               </Wrap>
-              <Exp>23 yrs</Exp>
+              <Exp>5 yrs</Exp>
             </Attribute>
             <Attribute>
               <Wrap>
                 <Photo></Photo>
-                <AtName>Javascript</AtName>
+                <AtName>REACT</AtName>
               </Wrap>
-              <Exp>23 yrs</Exp>
+              <Exp>2 yrs</Exp>
             </Attribute>
           </Stats>
         </Wrapper>
