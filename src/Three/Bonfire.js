@@ -17,7 +17,7 @@ export function Bonfire(props) {
   }, []);
   const { nodes, materials } = useGLTF("/Assets/BonfireModel/scene.gltf");
   return (
-    <group {...props}>
+    <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
