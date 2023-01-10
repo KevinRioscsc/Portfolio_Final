@@ -22,7 +22,7 @@ const ProjectNav = () => {
         click: null,
       },
       {
-        title: "Kimo Wireless Landing Site",
+        title: "Tech Repair Landing-Site",
         click: null,
       },
     ],

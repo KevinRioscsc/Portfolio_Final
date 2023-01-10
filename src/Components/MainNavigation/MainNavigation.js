@@ -1,8 +1,9 @@
 import React from "react";
 import useAddToStack from "../../Hooks/useAddToStack";
 import Navigation from "../Navigation/Navigation";
+import Delayed from "../Delay/Delay";
 
-const MainNavigation = () => {
+const MainNavigation = ({ pressed }) => {
   const { isActive } = useAddToStack("startMenu");
   const style = {
     Title: "startMenu",
@@ -21,9 +22,15 @@ const MainNavigation = () => {
     isActive: isActive,
   };
   return (
-    <div>
-      <Navigation {...style} />
-    </div>
+    <>
+      {pressed ? (
+        <Delayed waitBeforeShow={3000}>
+          <Navigation {...style} />
+        </Delayed>
+      ) : (
+        <Navigation {...style} />
+      )}
+    </>
   );
 };
 

@@ -74,7 +74,7 @@ const Navigation = ({ ...props }) => {
   const { navTitle, isActive, Title } = props;
 
   const { goBack } = useRemoveFromStack(Title);
-  const { clickIndex } = useAddToStack();
+  const { clickIndex, selectAudio } = useAddToStack();
 
   const style = {
     left: "10%",
@@ -99,7 +99,10 @@ const Navigation = ({ ...props }) => {
           return (
             <Category
               key={index + item.title}
-              onClick={() => clickIndex(item.title)}
+              onClick={() => {
+                selectAudio();
+                clickIndex(item.title);
+              }}
             >
               {item.title}
             </Category>

@@ -5,6 +5,7 @@ import { Bonfire } from "./Bonfire";
 import { Floor } from "./Floor";
 import Lights from "./Light";
 import { Fire } from "../Shaders/Fire";
+import Delayed from "../Components/Delay/Delay";
 
 const Plane = () => {
   return (
@@ -38,7 +39,11 @@ const Three = ({ isActive }) => {
     <>
       <Canvas camera={{ position: [0, -0.1, 2.5] }}>
         <Lights isActive={isActive} />
-        {isActive ? <Fire color={"white"} /> : null}
+        {isActive ? (
+          <Delayed waitBeforeShow={3000}>
+            <Fire color={"white"} />
+          </Delayed>
+        ) : null}
 
         <Bonfire />
 

@@ -14,6 +14,7 @@ const Container = styled.div`
   left: ${(props) => props.left};
   top: ${(props) => props.right};
   transform: ${(props) => props.transform};
+
   z-index: 98;
 `;
 

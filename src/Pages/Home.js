@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import StartNavigation from "../Components/CallToAction/StartNavigation";
 import Three from "../Three/Three";
 import Loading from "../Components/LoadingScreen/Loading";
@@ -11,9 +11,11 @@ import useAddToStack from "../Hooks/useAddToStack";
 import BonOverlay from "../Components/BonfireLitOverlay/BonOverlay";
 
 import mySound from "../Sound/bonfireSound.mp3";
+import ContactMe from "../Components/ContactMe/ContactMe";
 
 const Home = () => {
   const { Load, menuStack } = useLoad();
+  const [pressed, setPressed] = useState(false);
   const { clickIndex, isActive } = useAddToStack("start");
 
   const audio = new Audio(mySound);
@@ -26,6 +28,7 @@ const Home = () => {
           if (isActive) {
             console.log("pressed", isActive);
             clickIndex("startMenu");
+            setPressed(true);
             audio.play();
           }
 
@@ -42,7 +45,7 @@ const Home = () => {
   return (
     <>
       <div style={{ height: "100vh", background: "black" }}>
-        <MainNavigation />
+        <MainNavigation pressed={pressed} />
         <StartNavigation />
         <Three isActive={menuStack[0].state ? false : true} />
       </div>
@@ -51,6 +54,7 @@ const Home = () => {
       <ProjectNav />
       <ShowCase />
       <BonOverlay />
+      <ContactMe />
     </>
   );
 };

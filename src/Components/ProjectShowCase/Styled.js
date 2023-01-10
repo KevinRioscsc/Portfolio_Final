@@ -12,7 +12,7 @@ export const Container = styled.div`
   z-index: 99;
 `;
 export const Wrapper = styled.div`
-  padding: 4em;
+  padding: 3em;
   color: white;
   height: inherit;
   display: flex;
@@ -25,7 +25,6 @@ export const VidContain = styled.div`
 `;
 export const Video = styled.div``;
 export const DescrDiv = styled.div`
-  padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -38,7 +37,7 @@ export const Title = styled.div`
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `;
 export const Catagories = styled.div``;
 export const LinksDiv = styled.div`
@@ -46,10 +45,17 @@ export const LinksDiv = styled.div`
   gap: 10px;
 `;
 export const DescrTitle = styled.div``;
-export const Tag = styled.div``;
+export const Tag = styled.div`
+  border: 1px solid white;
+  width: 70px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const Para = styled.div`
-  width: 90%;
-  align-self: center;
+  width: 100%;
+  font-size: 20px;
 `;
 export const LinkTitle = styled.div`
   cursor: pointer;
@@ -79,4 +85,10 @@ export const Back = styled.div`
   &:hover {
     opacity: 1;
   }
+`;
+export const Flex = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 `;
