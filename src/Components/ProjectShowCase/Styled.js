@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 600px;
-  width: 1100px;
+  width: 1500px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
   color: white;
   height: inherit;
   display: flex;
+  gap: 20px;
 `;
 export const VidContain = styled.div`
   background: black;
@@ -23,7 +24,10 @@ export const VidContain = styled.div`
   width: 60%;
   z-index: 9999;
 `;
-export const Video = styled.div``;
+export const Video = styled.video`
+  height: 100%;
+  width: 100%;
+`;
 export const DescrDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -92,3 +96,4 @@ export const Flex = styled.div`
   flex-wrap: wrap;
   gap: 5px;
 `;
+export const Source = styled.source``;

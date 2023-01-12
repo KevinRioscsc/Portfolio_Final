@@ -11,19 +11,18 @@ const ProjectNav = () => {
     navTitle: [
       {
         title: "BlockChain",
-        click: null,
       },
       {
         title: "Portfolio Template",
-        click: null,
       },
       {
         title: "E-Commerce Website",
-        click: null,
       },
       {
         title: "Tech Repair Landing-Site",
-        click: null,
+      },
+      {
+        title: "Game of Life Circuit",
       },
     ],
     isActive: isActive,

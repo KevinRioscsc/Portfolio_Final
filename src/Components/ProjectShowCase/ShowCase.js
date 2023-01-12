@@ -18,6 +18,7 @@ import {
   LinkTitle,
   Back,
   Flex,
+  Source,
 } from "./Styled";
 import useRemoveFromStack from "../../Hooks/useRemoveFromStack";
 import useAddToStack from "../../Hooks/useAddToStack";
@@ -32,8 +33,8 @@ const ShowCase = () => {
   const style = {
     left: "50%",
     right: "50%",
-    height: "600px",
-    width: "1100px",
+    height: "700px",
+    width: "1500px",
     transform: "translate(-50%, -50%)",
     isActive: isActive,
   };
@@ -48,7 +49,9 @@ const ShowCase = () => {
           {project ? (
             <>
               <VidContain>
-                <Video></Video>
+                <Video autoPlay muted loop>
+                  <Source src={project.video}></Source>
+                </Video>
               </VidContain>
               <DescrDiv>
                 <Title>{project.title}</Title>
