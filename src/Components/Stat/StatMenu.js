@@ -23,6 +23,12 @@ import useAddToStack from "../../Hooks/useAddToStack";
 import { IoMdArrowBack } from "react-icons/io";
 import useRemoveFromStack from "../../Hooks/useRemoveFromStack";
 import krios from "../../Images/kriosPic.png";
+import JS from "../../Images/javascript.png";
+import CSS from "../../Images/CSS.png";
+import HTML from "../../Images/HTML.png";
+import REACT from "../../Images/REACT.png";
+import AGE from "../../Images/icon_level.png";
+import EXP from "../../Images/icon_attunement.png";
 
 const StatMenu = () => {
   const { isActive } = useAddToStack("Stats");
@@ -35,6 +41,10 @@ const StatMenu = () => {
     width: "1000px",
     transform: "translate(-50%, -50%)",
     isActive: isActive,
+    responsWidth: "95%",
+    responsTop: "50%",
+    responsMax: "1050px",
+    responsHeight: "80%",
   };
 
   return (
@@ -66,14 +76,14 @@ const StatMenu = () => {
             <MYLevel>
               <Attribute>
                 <Wrap>
-                  <Photo></Photo>
+                  <Photo img={AGE}></Photo>
                   <AtName>Age</AtName>
                 </Wrap>
                 <Exp>23 yrs</Exp>
               </Attribute>
               <Attribute>
                 <Wrap>
-                  <Photo></Photo>
+                  <Photo img={EXP}></Photo>
                   <AtName>Experience</AtName>
                 </Wrap>
                 <Exp>5 yrs</Exp>
@@ -81,28 +91,28 @@ const StatMenu = () => {
             </MYLevel>
             <Attribute>
               <Wrap>
-                <Photo></Photo>
+                <Photo img={JS}></Photo>
                 <AtName>Javascript</AtName>
               </Wrap>
               <Exp>5 yrs</Exp>
             </Attribute>
             <Attribute>
               <Wrap>
-                <Photo></Photo>
+                <Photo img={CSS}></Photo>
                 <AtName>CSS</AtName>
               </Wrap>
               <Exp>4 yrs</Exp>
             </Attribute>
             <Attribute>
               <Wrap>
-                <Photo></Photo>
+                <Photo img={HTML}></Photo>
                 <AtName>HTML</AtName>
               </Wrap>
               <Exp>5 yrs</Exp>
             </Attribute>
             <Attribute>
               <Wrap>
-                <Photo></Photo>
+                <Photo img={REACT}></Photo>
                 <AtName>REACT</AtName>
               </Wrap>
               <Exp>2 yrs</Exp>

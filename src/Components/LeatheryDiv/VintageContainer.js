@@ -14,12 +14,30 @@ const Container = styled.div`
   left: ${(props) => props.left};
   top: ${(props) => props.right};
   transform: ${(props) => props.transform};
-
   z-index: 98;
+  @media screen and (max-width: ${(props) => props.responsMax}) {
+    width: ${(props) => props.responsWidth};
+    left: ${(props) => props.responsLeft};
+    top: ${(props) => props.responsTop};
+    height: ${(props) => props.responsHeight};
+    box-shadow: 2px 3px 20px whitesmoke, 0 0 20px #613c17 inset;
+  }
 `;
 
 const VintageContainer = ({ ...props }) => {
-  const { left, right, height, width, transform, isActive } = props;
+  const {
+    left,
+    right,
+    height,
+    width,
+    transform,
+    isActive,
+    responsTop,
+    responsWidth,
+    responsMax,
+    responsHeight,
+    responsLeft,
+  } = props;
   return (
     <>
       <Container
@@ -29,6 +47,11 @@ const VintageContainer = ({ ...props }) => {
         right={right}
         isActive={isActive}
         transform={transform}
+        responsTop={responsTop}
+        responsWidth={responsWidth}
+        responsMax={responsMax}
+        responsHeight={responsHeight}
+        responsLeft={responsLeft}
       ></Container>
       <svg style={{ display: "none" }}>
         <filter id="wavy2">

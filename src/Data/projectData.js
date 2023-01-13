@@ -19,7 +19,7 @@ export const projects = [
     ],
     video: video1,
     Description:
-      "I created a website that serves as a blockchain news updater for users. On my website, users can see the latest updates from various crypto exchanges and track the changes of their favorite cryptocurrencies. I built the frame of the website using React and created my own custom hooks to retrieve the blockchain data through an API using the RAPID API service. My website is a helpful resource for anyone interested in staying informed about the constantly evolving world of blockchain and cryptocurrency.",
+      "Users can see the latest updates from various crypto exchanges and track the changes of their favorite cryptocurrencies. I built the frame of the website using React and created my own custom hooks to retrieve the blockchain data through an API using the RAPID API service. My website is a helpful resource for anyone interested in staying informed about the constantly evolving world of blockchain and cryptocurrency.",
     websiteLink: "https://capable-biscuit-e938cf.netlify.app",
     githubLink: "https://github.com/KevinRioscsc/Crypto-Info-App",
   },

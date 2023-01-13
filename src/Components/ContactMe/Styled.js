@@ -4,17 +4,19 @@ export const Wrapper = styled.div`
   position: absolute;
   left: 50%;
   top: 10%;
-  height: 400px;
+  height: 500px;
   width: 800px;
   transform: translate(-50%, 0);
   color: white;
   z-index: 999999999999;
-  margin: 70px;
-  display: flex;
-  flex-direction: column;
+
   transition: all 0.6s ease-in-out;
   opacity: ${(props) => (props.isActive ? "1" : "0")};
   visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
+
+  @media screen and (max-width: 945px) {
+    width: 90%;
+  }
 `;
 export const Title = styled.div`
   font-size: 25px;
@@ -59,17 +61,15 @@ export const Msg = styled.input`
   outline: none;
   color: white;
   transition: all 0.2s ease-in-out;
-  width: 300px;
+  max-width: 300px;
   &:focus {
     border: 0;
     border-bottom: 1px solid #613c17;
   }
 `;
 export const Enter = styled.div`
-  position: absolute;
-  bottom: 25%;
-  left: 50%;
-  transform: translate(-65%, 0);
+  display: flex;
+  justify-content: center;
 `;
 export const Submit = styled.input`
   background-color: black;
@@ -90,8 +90,8 @@ export const Submit = styled.input`
 `;
 export const Back = styled.div`
   position: absolute;
-  top: -10%;
-  left: -5%;
+  top: 2%;
+  left: 2%;
   z-index: 9999999;
   color: white;
   height: 50px;
@@ -101,5 +101,14 @@ export const Back = styled.div`
   cursor: pointer;
   &:hover {
     opacity: 1;
+  }
+`;
+export const Space = styled.div`
+  padding: 70px 0 0 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (max-width: 500px) {
+    padding: 70px 0 0 20px;
   }
 `;

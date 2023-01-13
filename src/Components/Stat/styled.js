@@ -12,10 +12,18 @@ export const Level = styled.div`
   height: 600px;
   width: 1000px;
   margin: 10px;
+  @media screen and (max-width: 1050px) {
+    width: 95%;
+    top: 50%;
+    height: 80%;
+  }
 `;
 export const TopLayer = styled.div`
   margin: 0 auto;
   width: 40%;
+  @media screen and (max-width: 1050px) {
+    width: 80%;
+  }
 `;
 export const Img = styled.div`
   height: 100px;
@@ -25,6 +33,10 @@ export const Img = styled.div`
   background-position: center;
   background-size: cover;
   z-index: 99999999999999999999;
+  @media screen and (max-width: 565px) {
+    height: 50px;
+    width: 50px;
+  }
 `;
 export const Title = styled.div`
   font-size: 20px;
@@ -40,6 +52,15 @@ export const Stats = styled.div`
   padding: 20px;
   margin: 0 auto;
   font-size: 20px;
+  @media screen and (max-width: 950px) {
+    height: 300px;
+  }
+  @media screen and (max-width: 565px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 440px) {
+    width: 200px;
+  }
 `;
 export const Name = styled.div`
   align-self: center;
@@ -56,6 +77,9 @@ export const Attribute = styled.div`
 `;
 export const Photo = styled.div`
   height: 20px;
+  background: url(${(props) => props.img});
+  background-position: center;
+  background-size: cover;
   width: 20px;
   border: 1px solid #613c17;
 `;
@@ -79,6 +103,9 @@ export const Wrapper = styled.div`
   margin-top: 80px;
   gap: 40px;
   position: relative;
+  @media screen and (max-width: 1050px) {
+    flex-direction: column;
+  }
 `;
 export const Back = styled.div`
   position: absolute;
@@ -107,4 +134,8 @@ export const Paragraph = styled.div`
   margin-top: 10px;
   font-size: 20px;
   line-height: 24px;
+  @media screen and (max-width: 565px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `;

@@ -22,10 +22,8 @@ const Loading = () => {
           <Logo src={logo} height={70} style={{ opacity: "0.7" }} />
           <TextWrap>
             <Line isTitle={true}>JavaScript</Line>
-            <Line>
-              JavaScript is the wizard's magic that brings websites to life.
-            </Line>
-            <Line></Line>
+            <Line>JavaScript is the wizard's magic</Line>
+            <Line>that brings websites to life.</Line>
             <Line>
               {" "}
               With JavaScript, you can conjure interactive forms, animations,
@@ -44,7 +42,7 @@ const Loading = () => {
           </TextWrap>
         </Flex>
         <Wrapper>
-          <BonfireImg src={bonfire} height={200} />
+          <BonfireImg src={bonfire} />
           <LoadTitle>Portfolio</LoadTitle>
         </Wrapper>
       </Container>

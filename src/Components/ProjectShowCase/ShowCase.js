@@ -37,6 +37,10 @@ const ShowCase = () => {
     width: "1500px",
     transform: "translate(-50%, -50%)",
     isActive: isActive,
+    responsWidth: "95%",
+    responsTop: "50%",
+    responsMax: "1555px",
+    responsHeight: "80%",
   };
   return (
     <>

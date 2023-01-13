@@ -22,6 +22,10 @@ const List = styled.div`
   justify-content: center;
 
   margin-top: 150px;
+  @media screen and (max-width: 620px) {
+    width: 100%;
+    left: 0;
+  }
 `;
 const Category = styled.div`
   width: 300px;
@@ -36,6 +40,10 @@ const Category = styled.div`
   border-left: 15px solid rgb(0, 0, 0, 1);
   border-right: 15px solid rgb(0, 0, 0, 1);
   box-shadow: 0;
+  @media screen and (max-width: 440px) {
+    width: 200px;
+    font-size: 18px;
+  }
 
   cursor: pointer;
   &:hover {
@@ -83,14 +91,15 @@ const Navigation = ({ ...props }) => {
     width: "500px",
     transform: "0",
     isActive: isActive,
+    responsWidth: "100%",
+    responsLeft: "0",
+    responsMax: "620px",
   };
 
   return (
     <>
       <VintageContainer {...style} />
-      <TitleDiv isActive={isActive}>
-        {Title === "startMenu" ? "" : Title}
-      </TitleDiv>
+
       <List isActive={isActive}>
         <Back onClick={goBack}>
           <IoMdArrowBack size={40} color={"white"} />

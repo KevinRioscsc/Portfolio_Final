@@ -23,6 +23,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 716px) {
+    width: 70%;
+  }
 `;
 const Content = styled.p`
   color: white;

@@ -10,6 +10,11 @@ export const Container = styled.div`
   opacity: ${(props) => (props.isActive ? "1" : "0")};
   visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
   z-index: 99;
+  @media screen and (max-width: 1555px) {
+    width: 95%;
+    flex-direction: column;
+    height: 80%;
+  }
 `;
 export const Wrapper = styled.div`
   padding: 3em;
@@ -17,12 +22,30 @@ export const Wrapper = styled.div`
   height: inherit;
   display: flex;
   gap: 20px;
+  @media screen and (max-width: 1555px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 1em;
+  }
 `;
 export const VidContain = styled.div`
   background: black;
   height: 80%;
   width: 60%;
   z-index: 9999;
+  @media screen and (max-width: 1555px) {
+    width: 80%;
+    height: 70%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: 60%;
+  }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 export const Video = styled.video`
   height: 100%;
@@ -33,10 +56,20 @@ export const DescrDiv = styled.div`
   flex-direction: column;
   gap: 15px;
   width: 50%;
+  @media screen and (max-width: 1555px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 100px;
+    gap: 30px;
+  }
 `;
 export const Title = styled.div`
   text-align: center;
   font-size: 25px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 export const Description = styled.div`
   display: flex;
@@ -46,7 +79,8 @@ export const Description = styled.div`
 export const Catagories = styled.div``;
 export const LinksDiv = styled.div`
   display: flex;
-  gap: 10px;
+
+  gap: 30px;
 `;
 export const DescrTitle = styled.div``;
 export const Tag = styled.div`
@@ -56,10 +90,18 @@ export const Tag = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 420px) {
+    width: 49px;
+    height: 20px;
+    font-size: 14px;
+  }
 `;
 export const Para = styled.div`
   width: 100%;
   font-size: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 export const LinkTitle = styled.div`
   cursor: pointer;
