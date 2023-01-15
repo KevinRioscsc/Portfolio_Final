@@ -12,7 +12,7 @@ import {
   Flex,
   Line,
 } from "./LoadingStyle";
-//loading
+
 
 const Loading = () => {
   const { Loaded } = useLoad();
