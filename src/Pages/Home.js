@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import StartNavigation from "../Components/CallToAction/StartNavigation";
 import Three from "../Three/Three";
 import Loading from "../Components/LoadingScreen/Loading";
@@ -21,32 +21,20 @@ const Home = () => {
   const audio = new Audio(mySound);
   audio.volume = 0.1;
 
-  useEffect(() => {
-    const userPressed = (e) => {
-      switch (e.key) {
-        case "e":
-          if (isActive) {
-            console.log("pressed", isActive);
-            clickIndex("startMenu");
-            setPressed(true);
-            audio.play();
-          }
+  const startNav = () => {
+    if (isActive) {
+      console.log("pressed", isActive);
+      clickIndex("startMenu");
+      setPressed(true);
+      audio.play();
+    }
+  };
 
-          break;
-      }
-    };
-
-    window.addEventListener("keydown", userPressed);
-
-    return () => {
-      window.removeEventListener("keydown", userPressed);
-    };
-  }, []);
   return (
     <>
       <div style={{ height: "100vh", background: "black" }}>
         <MainNavigation pressed={pressed} />
-        <StartNavigation />
+        <StartNavigation clicked={startNav} />
         <Three isActive={menuStack[0].state ? false : true} />
       </div>
       <Loading isLoaded={Load} />

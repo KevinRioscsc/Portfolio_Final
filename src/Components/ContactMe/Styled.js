@@ -112,3 +112,24 @@ export const Space = styled.div`
     padding: 70px 0 0 20px;
   }
 `;
+export const Form = styled.form``;
+export const Wrapper2 = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  height: 500px;
+  width: 800px;
+  transform: translate(-50%, 0);
+  color: white;
+  z-index: 999999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s ease-in-out;
+  opacity: ${(props) => (props.isActive ? "1" : "0")};
+  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
+
+  @media screen and (max-width: 945px) {
+    width: 90%;
+  }
+`;

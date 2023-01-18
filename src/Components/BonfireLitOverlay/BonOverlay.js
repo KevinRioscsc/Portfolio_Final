@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   visibility: hidden;
 
   animation: ${(props) =>
-    props.isActive ? "overlay-animation 4s ease-in-out" : "unset"};
+    props.isActive ? "overlay-animation 4s ease-in-out " : "unset"};
 
   @keyframes overlay-animation {
     0% {
@@ -41,10 +41,19 @@ const Wrapper = styled.div`
       visibility: hidden;
     }
   }
+  @media screen and (max-width: 900px) {
+    font-size: 100px;
+  }
+  @media screen and (max-width: 690px) {
+    font-size: 50px;
+  }
+  @media screen and (max-width: 420px) {
+    font-size: 30px;
+  }
 `;
 const ShadowLeft = styled.div`
   animation: ${(props) =>
-    props.isActive ? "left-animation 4s ease-in-out" : "unset"};
+    props.isActive ? "left-animation 4s ease-in-out " : "unset"};
 
   @keyframes left-animation {
     0% {
@@ -61,7 +70,7 @@ const ShadowLeft = styled.div`
 `;
 const ShadowMiddle = styled.div`
   animation: ${(props) =>
-    props.isActive ? "middle-animation 4s ease-in-out" : "unset"};
+    props.isActive ? "middle-animation 4s ease-in-out " : "unset"};
 
   @keyframes middle-animation {
     0% {
@@ -78,7 +87,7 @@ const ShadowMiddle = styled.div`
 `;
 const ShadowRight = styled.div`
   animation: ${(props) =>
-    props.isActive ? "right-animation 4s ease-in-out" : "unset"};
+    props.isActive ? "right-animation 4s ease-in-out " : "unset"};
   @keyframes right-animation {
     0% {
       text-shadow: #ff4800 10px 0px 20px;
