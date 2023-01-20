@@ -37,8 +37,7 @@ const ContactMe = () => {
     responsMax: "945px",
   };
   const form = useRef();
-  console.log(process.env.REACT_APP_PUBLIC_KEY);
-  console.log(process.env.REACT_APP_TEMPLATE_ID);
+
   const sendEmail = (e) => {
     e.preventDefault();
 
