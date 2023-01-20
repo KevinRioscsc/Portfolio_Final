@@ -23,7 +23,6 @@ const Home = () => {
 
   const startNav = () => {
     if (isActive) {
-      console.log("pressed", isActive);
       clickIndex("startMenu");
       setPressed(true);
       audio.play();

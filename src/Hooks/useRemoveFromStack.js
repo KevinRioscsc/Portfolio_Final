@@ -10,7 +10,6 @@ const useRemoveFromStack = (Title) => {
         .filter((item) => item.title !== Title)
         .map((item, index) => {
           if (index === prev.length - 2) {
-            //console.log("this item is", item);
             return { ...item, state: true };
           }
           return { ...item };
