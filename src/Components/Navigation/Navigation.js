@@ -51,17 +51,7 @@ const Category = styled.div`
     background-color: #cf5300b3;
   }
 `;
-const TitleDiv = styled.div`
-  position: absolute;
-  z-index: 9999;
-  color: white;
-  font-size: 25px;
-  left: 19%;
-  top: 24%;
-  transition: all 0.6s ease-in-out;
-  opacity: ${(props) => (props.isActive ? "1" : "0")};
-  visibility: ${(props) => (props.isActive ? "visibile" : "hidden")};
-`;
+
 const Back = styled.div`
   position: absolute;
   top: 18%;
