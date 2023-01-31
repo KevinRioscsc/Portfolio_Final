@@ -37,7 +37,7 @@ const Content = styled.p`
 
 const StartNavigation = ({ clicked }) => {
   const { menuStack } = useLoad();
-  //
+
   return (
     <>
       <Container onClick={clicked} isActive={menuStack[0].state}>
