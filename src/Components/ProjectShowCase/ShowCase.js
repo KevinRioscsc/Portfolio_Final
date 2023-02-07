@@ -42,6 +42,7 @@ const ShowCase = () => {
     responsMax: "1555px",
     responsHeight: "80%",
   };
+  //idk
   return (
     <>
       <VintageContainer {...style} />
